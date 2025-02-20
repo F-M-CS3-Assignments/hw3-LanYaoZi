@@ -5,7 +5,6 @@ using namespace std;
 
 #include "TimeCode.h"
 
-
 void TestComponentsToSeconds(){
 	cout << "Testing ComponentsToSeconds" << endl;
 	
@@ -74,6 +73,8 @@ void TestSubtract(){
 	TimeCode tc1 = TimeCode(1, 0, 0);
 	TimeCode tc2 = TimeCode(0, 50, 0);
 	TimeCode tc3 = tc1 - tc2;
+	//Test:
+	//cout<<"tc3"<<tc3.ToString()<<endl;
 	assert(tc3.ToString() == "0:10:0");
 	
 	
@@ -89,6 +90,9 @@ void TestSubtract(){
 	}
 
 	// more tests
+	//test equal
+	// TimeCode tc_test = TimeCode(0, 50, 0);
+	// assert(tc_test==tc2);
 	
 	cout << "PASSED!" << endl << endl;
 }
@@ -111,7 +115,8 @@ void TestSetMinutes()
 	{
 		// cout << e.what() << endl;
 	}
-
+	//test:
+	//cout<<tc.ToString()<<endl;
 	assert(tc.ToString() == "8:15:9");
 
 	cout << "PASSED!" << endl << endl;
@@ -127,6 +132,8 @@ int main(){
 	TestDefaultConstructor();
 	TestComponentConstructor();
 	TestGetComponents();
+	TestSubtract();
+	TestSetMinutes();
 	
 	// Many othere test functions...
 	
