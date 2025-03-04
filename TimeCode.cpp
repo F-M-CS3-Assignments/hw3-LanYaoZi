@@ -16,6 +16,7 @@ TimeCode::TimeCode(unsigned int hr, unsigned int min, long long unsigned int sec
     //cout<<"input:"<<hr<<" "<<min<<" "<<sec<<" output:"<<t<<endl;
 }
 
+
 void TimeCode::SetHours(unsigned int hours){
     //get old hours of time and reset it before set new one. Same for others
     int old_hour=GetHours();
