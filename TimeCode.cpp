@@ -77,7 +77,7 @@ void TimeCode::GetComponents(unsigned int& hr, unsigned int& min,unsigned int& s
     min=(t%3600)/60;
     sec=(t%3600)%60;
 }
-long long unsigned int TimeCode::ComponentsToSeconds(unsigned int hr, unsigned int min, unsigned int sec){
+long long unsigned int TimeCode::ComponentsToSeconds(unsigned int hr, unsigned int min, long long unsigned int sec){
     return 3600*hr+60*min+sec;
 }
 
@@ -115,11 +115,17 @@ TimeCode TimeCode::operator-(const TimeCode& other) const{
 }
 TimeCode TimeCode::operator*(double a) const{
     TimeCode ot;
+    if(a<0){
+        throw invalid_argument("Negative input of Multiply not allowed");
+    }
     ot.t=t*a;
     return ot;
 }
 TimeCode TimeCode::operator/(double a) const{
     TimeCode ot;
+    if(a<0){
+        throw invalid_argument("Negative input of Division not allowed");
+    }
     ot.t=t/a;
     return ot;
 }
